@@ -3,7 +3,7 @@
 A small Swift Package for using "reactive style" without using a functional reactive programming framework.
 
 ## What
-The generic object `Reactive` implements an observer system to notify listeners of initial and updated values.  There is no stream of data, just single item update propagation.  `Reactive` can also be used as a property wrapper.
+The generic object `Reactive` implements an observer system to notify listeners of initial and updated values.  There is no stream of data, just single update propagation.  `Reactive` can also be used as a property wrapper.
 
 ## Why
 Reactive style can help keep code maintainable by using unidirectional dataflow, but learning a functional reactive framework may be daunting or too time consuming.  Since `Reactive` is a very small library, it takes very little time to learn and is easy to understand.  `Reactive` does not add any extra overhead of unsubscribing, retaining, or releasing any objects.
