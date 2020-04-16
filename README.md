@@ -6,7 +6,7 @@ A small Swift Package for using "reactive style" without using a functional reac
 The generic object `Reactive` implements an observer system to notify listeners of initial and updated values.  There is no stream of data, just single update propagation.  `Reactive` can also be used as a property wrapper.
 
 ## Why
-Reactive style can help keep code maintainable by using unidirectional dataflow, but using a functional reactive framework may be daunting or project constraints doesn't allow it.  Since `Reactive` is a very small library, it takes very little time to learn and is easy to understand.  As long as `Reactive` does not add any extra overhead of unsubscribing, retaining, or releasing any objects.
+Reactive style can help keep code maintainable by encouraging unidirectional dataflow.  Team or project constraints may not allow the use of a reactive framework such as `Combine`, so `Reactive` can be an alternative.  `Reactive` works with Swift 5.1, and takes very little time to learn.  `Reactive` does not need any extra coding overhead of unsubscribing, retaining, or releasing any objects.  `Reactive` is smart enough to discard handlers if the associated listener is deallocated.
 
 ## How
 ### Reactive Object
@@ -35,7 +35,7 @@ title.unbind(label)    // All handlers associated to the label are now removed
 ```
 
 ### Reactive Property Wrapper
-The following properties are all equivalent, except the `@Reactive` property wrapper offers syntactic sugar.
+The following properties within `MyClass` are all equivalent, except the `@Reactive` property wrapper offers syntactic sugar.
 ```swift
 class MyClass {
     @Reactive var title: String = ""
