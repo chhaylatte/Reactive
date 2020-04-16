@@ -28,6 +28,12 @@ class Broadcaster<T> {
         proxyListeners.append(proxy)
     }
 
+    func removeListener<U: AnyObject>(_ listener: U) {
+        let index = proxyListeners.partition(by: { $0.listener === listener || $0.listener == nil })
+        guard index != proxyListeners.endIndex else { return }
+        proxyListeners.removeSubrange(index...)
+    }
+
     func broadcast(value: T) {
         pruneListeners()
 
