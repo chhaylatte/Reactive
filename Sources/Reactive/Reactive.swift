@@ -5,6 +5,8 @@
 //  Created by Danny Chhay on 6/29/19.
 //  Copyright © 2019 Danny Chhay. All rights reserved.
 //
+
+@available(swift 5.1)
 @propertyWrapper
 public class Reactive<T> {
 
@@ -67,4 +69,3 @@ public class Reactive<T> {
         broadcaster.removeListener(listener)
     }
 }
-
