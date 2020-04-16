@@ -9,7 +9,7 @@ The generic object `Reactive` implements an observer system to notify listeners 
 Reactive style can help keep code maintainable by using unidirectional dataflow, but learning a functional reactive framework may be daunting or too time consuming.  Since `Reactive` is a very small library, it takes very little time to learn and is easy to understand.  `Reactive` does not add any extra overhead of unsubscribing, retaining, or releasing any objects.
 
 ## How
-
+### Reactive Object
 Initialize a `Reactive` type with any type that is intended to be observed.  Ex. a `String` that can be changed and used to update a label.
 ```swift
 let title = Reactive("Title")   // `title` is of type `Reactive<String>` in this case
@@ -34,8 +34,8 @@ To stop listening for values, call the `unbind(_ listener:)` method.
 title.unbind(label)    // All handlers associated to the label are now removed
 ```
 
-## Property Wrapper
-The following properties are all equivalent, except the `@Reactive` property wrapper has different syntax.
+### Reactive Property Wrapper
+The following properties are all equivalent, except the `@Reactive` property wrapper offers syntactic sugar.
 ```swift
 class MyClass {
     @Reactive var title: String = ""
