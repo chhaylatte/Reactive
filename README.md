@@ -9,6 +9,8 @@ The generic object `Reactive` implements an observer system to notify listeners 
 Reactive style can help keep code maintainable by encouraging unidirectional dataflow.  Team or project constraints may not allow the use of a reactive framework such as `Combine`, so `Reactive` can be an alternative.  `Reactive` works with Swift 5.1, and takes very little time to learn.  `Reactive` does not need any extra coding overhead of unsubscribing, retaining, or releasing any objects.  `Reactive` is smart enough to discard handlers if the associated listener is deallocated.
 
 ## How
+`Reactive` can be used as either an object or as a property wrapper.  The property wrapper is more similar to what modern Swift with Combine is doing.
+
 ### Reactive Object
 Initialize a `Reactive` type with any type that is intended to be observed.  Ex. a `String` that can be changed and used to update a label.
 ```swift
@@ -57,6 +59,7 @@ let label = UILabel()
 myClass.$title.bind(label) { (aLabel, string) in
     aLabel.text = string
 }
+myClass.title = "Newest Title"  // Triggers the previously bound handler
 
-myClass.$title.unbind(label)
+myClass.$title.unbind(label)    // All handlers associated to label are removed
 ```
