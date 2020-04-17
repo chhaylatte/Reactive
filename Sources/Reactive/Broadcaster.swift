@@ -3,6 +3,7 @@
 //  Reactive
 //
 //  Created by Danny Chhay on 6/29/19.
+//  Copyright © 2019 Danny Chhay. All rights reserved.
 //
 
 class Broadcaster<T> {
