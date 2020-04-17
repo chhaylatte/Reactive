@@ -23,8 +23,8 @@ print(myClass.title.wrappedValue)      // Prints "Title"
 
 To start listening, call the `bind(_ listener:, skipInitialValue:, handler:)`  method.  The handler is called after every `update` call on the `Reactive` object.
 ```swift
-let label = UILabel()
-myClass.title.bind(label) { (aLabel, string) in // This handler will be called with the listener and value as parameters
+let titleLabel = UILabel()
+myClass.title.bind(titleLabel) { (aLabel, string) in // This handler will be called with the listener and new/initial values as parameters
     alabel.text = string    // Update the text of the listener.
 }
 ```
@@ -36,7 +36,7 @@ myClass.title.update("New Title")   // All the handlers that is bound to `title`
 
 To stop listening for values, call the `unbind(_ listener:)` method.
 ```swift
-myClass.title.unbind(label)    // All handlers associated to the label are now removed
+myClass.title.unbind(titleLabel)    // All handlers associated to the label are now removed
 ```
 
 ### Reactive Property Wrapper
@@ -56,11 +56,11 @@ print(myClass.title)        // prints "New Title"
 
 To bind or unbind a reactive property, use its property projection.
 ```swift
-let label = UILabel()
-myClass.$title.bind(label) { (aLabel, string) in
+let titleLabel = UILabel()
+myClass.$title.bind(titleLabel) { (aLabel, string) in   // This handler will be called with the listener and new/initial values as parameters
     aLabel.text = string
 }
 myClass.title = "Newest Title"  // Triggers the previously bound handler
 
-myClass.$title.unbind(label)    // All handlers associated to label are removed
+myClass.$title.unbind(titleLabel)    // All handlers associated to label are removed
 ```
