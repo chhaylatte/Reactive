@@ -3,16 +3,16 @@
 A small Swift Package for using "reactive style" without using a functional reactive programming framework.
 
 ## What
-The generic object `Reactive` implements an observer system to notify listeners of initial and updated values.  There is no stream of data, just single update propagation.  `Reactive` can also be used as a property wrapper.
+The generic object `Reactive` implements an observer system to notify listeners of initial and updated values.  There is no stream of data, just single update propagation.  `Reactive` is also a property wrapper.
 
 ## Why
-Reactive style can help keep code maintainable by encouraging unidirectional dataflow.  Team or project constraints may not allow the use of a reactive framework such as `Combine`, so `Reactive` can be an alternative.  `Reactive` works with Swift 5.1, and takes very little time to learn.  `Reactive` does not need any extra coding overhead of unsubscribing, retaining, or releasing any objects.  `Reactive` is smart enough to discard handlers if the associated listener is deallocated.
+Reactive style can help keep code maintainable by reducing the amount of code and complexity.  Team or project constraints may not allow the use of a reactive framework such as `Combine` or `RxSwift`, so `Reactive` can be an alternative.  `Reactive` works with Swift 5.1, and takes very little time to learn.  `Reactive` does not need any extra coding overhead of unsubscribing, retaining, or releasing any objects.  `Reactive` is smart enough to discard handlers if the associated listener is deallocated.
 
 ## How
-`Reactive` can be used as either an object or as a property wrapper.  The property wrapper is more similar to what modern Swift with Combine is doing.
+`Reactive` is conceptually just a wrapper that also supports a built in observer method.  `Reactive` can be used as either an object or as a property wrapper.  Simply use the bind method on `Reactive` to define how to handle values.
 
 ### Reactive Object
-Initialize a `Reactive` type with any type that is intended to be observed.  Ex. a `String` that can be changed and used to update a label.
+Initialize a `Reactive` type with any type that is intended to be observed.  Ex. a `String` that stores info and is observed to update a label.
 ```swift
 class MyClass {
     let title = Reactive("Title")   // `title` is of type `Reactive<String>` in this case
