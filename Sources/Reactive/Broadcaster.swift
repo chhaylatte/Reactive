@@ -8,7 +8,7 @@
 class Broadcaster<T> {
     private class ProxyListener {
         weak var listener: AnyObject?
-        var handler: (T) -> Void
+        let handler: (T) -> Void
 
         init<U: AnyObject>(listener: U, handler: @escaping (U, T) -> Void) {
             self.listener = listener
