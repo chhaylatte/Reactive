@@ -14,41 +14,42 @@ Reactive style can help keep code maintainable by encouraging unidirectional dat
 ### Reactive Object
 Initialize a `Reactive` type with any type that is intended to be observed.  Ex. a `String` that can be changed and used to update a label.
 ```swift
-let title = Reactive("Title")   // `title` is of type `Reactive<String>` in this case
-print(title.value)      // Print the wrapped value.  title.wrappedValue works too.
+class MyClass {
+    let title = Reactive("Title")   // `title` is of type `Reactive<String>` in this case
+}
+let myClass = MyClass()
+print(myClass.title.wrappedValue)      // Prints "Title"
 ```
 
 To start listening, call the `bind(_ listener:, skipInitialValue:, handler:)`  method.  The handler is called after every `update` call on the `Reactive` object.
 ```swift
 let label = UILabel()
-title.bind(label) { (aLabel, string) in // This handler will be called with the listener and value as parameters
+myClass.title.bind(label) { (aLabel, string) in // This handler will be called with the listener and value as parameters
     alabel.text = string    // Update the text of the listener.
 }
 ```
 
 To change the `value` call the `update(_ value:)` method.
 ```swift
-title.update("New Title")   // All the handlers that is bound to `title` object is called after the value is updated.
+myClass.title.update("New Title")   // All the handlers that is bound to `title` object is called after the value is updated.
 ```
 
 To stop listening for values, call the `unbind(_ listener:)` method.
 ```swift
-title.unbind(label)    // All handlers associated to the label are now removed
+myClass.title.unbind(label)    // All handlers associated to the label are now removed
 ```
 
 ### Reactive Property Wrapper
-The following properties within `MyClass` are all equivalent, except the `@Reactive` property wrapper offers syntactic sugar.
+The `@Reactive` property wrapper offers syntactic sugar.  Internally, it is the same as the `Reactive` object
 ```swift
 class MyClass {
     @Reactive var title: String = ""
-    var title2: Reactive<String> = Reactive("")
-    var title3 = Reactive("")
 }
 
 let myClass = MyClass()
 print(myClass.title)        // prints ""
 
-myClass.title = "New Title"
+myClass.title = "New Title" // Updates the title
 print(myClass.title)        // prints "New Title"
 
 ```
