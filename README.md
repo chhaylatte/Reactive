@@ -1,6 +1,6 @@
 # Reactive
 
-A small Swift Package for using "reactive style" without using a functional reactive programming framework.
+A small Swift Package for using declarative style without using a functional reactive programming framework.
 
 ## What
 The generic object `Reactive` implements an observer system to notify listeners of initial and updated values.  There is no stream of data, just single update propagation.  `Reactive` is also a property wrapper.
