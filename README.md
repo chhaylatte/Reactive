@@ -3,19 +3,19 @@
 A small Swift Package for using declarative style without using a functional reactive programming framework.
 
 ## What
-The object `Reactive` object implements an observer system to notify listeners of initial and updated values.  There is no stream of data, just single update propagation.  `Reactive` can also be used as a property wrapper.
+`Reactive` is a wrapper object that implements an observer system to notify listeners of initial and updated values.  There is no stream of data, just single update propagation.  `Reactive` can also be used as a property wrapper.
 
 ## Why
 Reactive style can help keep code maintainable by reducing the amount of code and complexity.  Team or project constraints may not allow the use of a reactive framework such as `Combine` or `RxSwift`, so `Reactive` can be an alternative.  `Reactive` works with Swift 5.1, and takes very little time to learn.  `Reactive` does not need any extra coding overhead of unsubscribing, retaining, or releasing any objects.  `Reactive` is smart enough to discard handlers if the associated listener is deallocated.
 
 ## How
-`Reactive` is conceptually just a wrapper that also supports a built in observer method.  `Reactive` can be used as either an object or as a property wrapper.  Simply use the bind method on `Reactive` to define how to handle values.
+`Reactive` is conceptually just a wrapper object that provides a built in observer method.  Simply use the bind method on `Reactive` to define how to handle new and initial values.
 
 ### Reactive Object
-Initialize a `Reactive` type with any type that is intended to be observed.  Ex. a `String` value that is needed to set the text of a label.
+Initialize a `Reactive` wrapper with any type that is intended to be observed.  For example, a `String` value that is needed to set the text of a label.
 ```swift
 class MyClass {
-    let title = Reactive("Title")   // `title` is of type `Reactive<String>` in this case
+    let title = Reactive("Title")   // `title` is implicitly of type `Reactive<String>` in this case
 }
 let myClass = MyClass()
 print(myClass.title.wrappedValue)      // Prints "Title"
