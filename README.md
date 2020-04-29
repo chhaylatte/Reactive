@@ -4,14 +4,14 @@ A small Swift Package for data binding.
 
 ## Installation
 ### Method 1: Swift Package Manager
-1. In Xcode, go to File > Swift Packages > Add Package Dependency
-2. Enter `https://github.com/chhaylatte/Reactive/` for the repository URL
-3. Select the desired version and press `Next`
+1. In Xcode, go to File > Swift Packages > Add Package Dependency.
+2. Enter `https://github.com/chhaylatte/Reactive/` for the repository URL.
+3. Select the desired version and press `Next`.
 
 ### Method 2: Carthage [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 1. Add `github "chhaylatte/Reactive"` in the `Cartfile`.
 3. Open `Carthage/Build` and locate the relevant `Reactive.framework` for the desired platform.
-4. Drag the `Reactive.framework` bundle into the `Frameworks, Libraries, and Embedded Content` section of the `Project Target` in Xcode
+4. Drag the `Reactive.framework` bundle into the `Frameworks, Libraries, and Embedded Content` section of the `Project Target` in Xcode.
 
 ## What
 `Reactive` is a wrapper object that implements an observer system to notify listeners of initial and updated values.  There is no stream of data, just single update propagation.
