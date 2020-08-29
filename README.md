@@ -17,7 +17,7 @@ A small Swift Package for data binding.
 `Reactive` is a wrapper object that implements an observer system to notify listeners of initial and updated values.  There is no stream of data, just single update propagation.
 
 ## Why
-Reactive style can help keep code maintainable by reducing the amount of code and complexity.  Team or project constraints may not allow the use of a reactive framework such as `Combine` or `RxSwift`, so `Reactive` can be an alternative.  `Reactive` works with Swift 5.1, and takes very little time to learn.  `Reactive` does not need any extra coding overhead of unsubscribing, retaining, or releasing any objects.  `Reactive` is smart enough to discard handlers if the associated listener is deallocated.
+Reactive style can help keep code maintainable by reducing the amount of code and complexity.  Team or project constraints, such as requiring older versions of iOS, may not allow the use of a reactive framework such as `Combine` or `RxSwift`, so `Reactive` can be an alternative.  `Reactive` works with Swift 5.1, and takes very little time to learn.  `Reactive` does not need any extra coding overhead of unsubscribing, retaining, or releasing any objects.  `Reactive` is smart enough to discard handlers if the associated listener is deallocated.
 
 ## How
 `Reactive` is conceptually just a wrapper object that provides a built in observer method.  Simply use the bind method on `Reactive` to define how to handle new and initial values.  `Reactive` can be used as either a wrapper object, or as a Swift property wrapper.
